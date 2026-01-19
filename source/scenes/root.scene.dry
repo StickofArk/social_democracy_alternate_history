@@ -6,7 +6,7 @@ go-to: post_event if started = 1; start_menu if started = 0
 new-page: true
 go-to: start_menu_2
 
-= Social Democracy: An Alternate History
+= Social Democracy: New Labour
 
 @start_menu_2
 
@@ -21,7 +21,7 @@ on-arrival: {!
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
-Q.year = 1972;
+Q.year = 1997;
 Q.month = 1;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -46,19 +46,16 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // factions
-Q.factions = ['orthodox', 'center', 'thirdway'];
+Q.factions = ['oldguard', 'modernisers'];
 // should this be normalized to 100%?
-Q.orthodox_strength = 10;
-Q.orthodox_dissent = 20;
-Q.center_strength = 40;
-Q.center_dissent = 0;
-Q.thirdway_strength = 5;
-Q.thirdway_dissent = 5;
+Q.oldguard_strength = 10;
+Q.oldguard_dissent = 20;
+Q.modernisers_strength = 40;
+Q.modernisers_dissent = 0;
 
 // secret events...
-Q.centrists_resign = 0;
-Q.orthodox_split = 0;
-Q.thirdway_resigned = 0;
+Q.oldguard_split = 0;
+Q.modernisers_split = 0;
 
 // crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
