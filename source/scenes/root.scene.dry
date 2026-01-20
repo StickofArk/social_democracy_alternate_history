@@ -244,14 +244,14 @@ Q.seniors_libdems = 50;
 // note: the Z figures also include the BVP (Bavarian people's party)
 // since they were ideologically similar, but they were separate parties.
 // They did not have a CDU/CSU-style relationship.
-Q.labour_r = 26;
-Q.conservative_r = 9;
-Q.libdems_r = 17;
+Q.labour_r = 31;
+Q.conservative_r = 46;
+Q.libdems_r = 23;
 
 // diff from prev
-Q.old_labour_r = 26;
-Q.old_conservative_r = 9;
-Q.old_libdems_r = 17;
+Q.old_labour_r = 31;
+Q.old_conservative_r = 46;
+Q.old_libdems_r = 23;
 
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
