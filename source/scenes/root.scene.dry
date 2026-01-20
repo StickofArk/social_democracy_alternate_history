@@ -216,27 +216,27 @@ Q.sapd_formed = 0;
 // they don't have to sum to 100 since the electoral calculations will be normalized.
 Q.workers_labour = 90;
 Q.workers_conservative = 1;
-Q.workers_libdems = 5;
+Q.workers_libdem = 5;
 
 Q.bourgeousie_labour = 5;
 Q.bourgeousie_conservative = 0;
-Q.bourgeousie_libdems = 95;
+Q.bourgeousie_libdem = 95;
 
 Q.middle_labour = 15;
 Q.middle_conservative = 60;
-Q.middle_libdems = 25;
+Q.middle_libdem = 25;
 
 Q.rural_labour = 10;
 Q.rural_conservative = 85;
-Q.rural_libdems = 5;
+Q.rural_libdem = 5;
 
 Q.unemployed_labour = 40;
 Q.unemployed_conservative = 55;
-Q.unemployed_libdems = 5;
+Q.unemployed_libdem = 5;
 
 Q.seniors_labour = 40;
 Q.seniors_conservative = 10;
-Q.seniors_libdems = 50;
+Q.seniors_libdem = 50;
 
 // Current Reichstag composition
 // % of Reichstag in Jan 1928
@@ -246,12 +246,12 @@ Q.seniors_libdems = 50;
 // They did not have a CDU/CSU-style relationship.
 Q.labour_r = 31;
 Q.conservative_r = 46;
-Q.libdems_r = 23;
+Q.libdem_r = 23;
 
 // diff from prev
 Q.old_labour_r = 31;
 Q.old_conservative_r = 46;
-Q.old_libdems_r = 23;
+Q.old_libdem_r = 23;
 
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
