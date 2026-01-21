@@ -274,7 +274,7 @@ There are some potential coalition arrangements.
 
 - @labour_majority
 - @people_coalition
-- @national_coalition
+- @british_coalition
 - @grand_coalition
 - @unity_government
 - @bourgeois_coalition
@@ -283,10 +283,10 @@ There are some potential coalition arrangements.
 # TODO: black-brown coalition
 
 
-@national_coalition
-title: A National coalition?
-subtitle: Labour + Conservative + LibDem  [? if sapd_formed: + SAPD ?]([+ national_coalition +]%)
-unavailable-subtitle: Labour + Conservative + LibDem [? if sapd_formed: + SAPD ?]([+ national_coalition +]%) - [? if ((kpd_relation < 65 and kpd_party_leader == "Thälmann") or (kpd_relation < 45 and kpd_party_leader == "Conciliators")): We do not have good enough relations with the KPD. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
+@british_coalition
+title: A British coalition?
+subtitle: Labour + Conservative + LibDem  [? if sapd_formed: + SAPD ?]([+ british_coalition +]%)
+unavailable-subtitle: Labour + Conservative + LibDem [? if sapd_formed: + SAPD ?]([+ british_coalition +]%) - [? if ((kpd_relation < 65 and kpd_party_leader == "Thälmann") or (kpd_relation < 45 and kpd_party_leader == "Conciliators")): We do not have good enough relations with the KPD. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
 view-if: popular_front_coalition >= 50
 choose-if: (((kpd_relation >= 65 and kpd_party_leader == "Thälmann") or (kpd_relation >= 45 and kpd_party_leader == "Conciliators")) and ((z_relation >= 45 and z_party_leader == "Joos") or (z_relation >= 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation >= 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators")) and ddp_relation >= 50 and communist_coalition >= 3) or (z_party_leader == "Joos" and kpd_party_leader == "Conciliators" and z_relation >= 30 and kpd_relation >= 30)
 
@@ -294,28 +294,26 @@ Could we really form a coalition that included both the Conservatived and the Li
 
 We may lose our voters, if such a coalition were formed.
 
-- @national_coalition: Form the National Coalition!
-
-@national_coalition
+- @british_coalition: Form the National Coalition!
 
 Somehow, both the Conservatives and Liberal Democrats are at the very least willing to entertain negotiations. Of course, they will derail the negotiations almost immediately. The Conservatives demands leadership of the coalition for themselves and their leader, [? if labour_r > conservative_r : despite our higher vote share, ?]while the Liberal Democrats is offended by the prospect of helping Conservatives enter government. *Something* must be done to restore balance.
 
-- @national_coalition_resources
-- @national_coalition_braun
+- @british_coalition_resources
+- @british_coalition_braun
 - @coalition_menu: This is impossible. Try another governing arrangement.
 
-@national_coalition_resources
+@british_coalition_resources
 title: Use our resources to smooth things over.
 unavailable-subtitle: Required: 4 resources
 subtitle: -4 resources
 choose-if: resources >= 4
 on-arrival: resources -= 4
-go-to: national_coalition_success
+go-to: british_coalition_success
 
-@national_coalition_braun
+@british_coalition_braun
 title: Use pressure from President Braun to force the parties to cooperate.
 view-if: president == "Braun"
-go-to: national_coalition_success
+go-to: british_coalition_success
 
 @great_popular_front
 view-if: z_party_leader == "Joos" and kpd_party_leader == "Conciliators"
@@ -325,14 +323,14 @@ go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_wa
 
 Somehow, the coalition is successfully formed! The conciliatory leadership of the Center Party and KPD helped make the negotiations possible. We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the SPD, acceptable to the Center and KPD [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
 
-@national_coalition_success
+@british_coalition_success
 on-arrival: labour_in_government = 1; in_national_coalition = 1; chancellor = "Breitscheid"; chancellor_party = "Labour"; conservative_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
 go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
 achievement: volksfront
 
 Somehow, surprisingly, the coalition is successfully formed! We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the SPD, acceptable to the Center and KPD [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
 
-@national_coalition_no_civil_war
+@british_coalition_no_civil_war
 on-arrival: kpd_goals_seen = 0; finance_minister_party = "Z"; interior_minister_party = "Z"; economic_minister_party = "Z"; labor_minister_party = "Z"; foreign_minister_party = "Z"; agriculture_minister_party = "Z"; reichswehr_minister = "I"; leverage = spd_r + kpd_r;
 achievement: volksfront
 
