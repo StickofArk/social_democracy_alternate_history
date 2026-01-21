@@ -74,9 +74,9 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Internal Factions of the SPD
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Modernisers</span>!} strength: [+ modernisers_strength : strength +], dissent: [+ modernisers_dissent : dissent +]
+{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">OldGuard</span>!} strength: [+ old_guard_strength : strength +], dissent: [+ old_guard_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">ThirdWay</span>!} strength: [+ thirdway_strength : strength +], dissent: [+ thirdway_dissent : dissent +]
+{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Modernisers</span>!} strength: [+ modernisers_strength : strength +], dissent: [+ modernisers_dissent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 
