@@ -201,52 +201,22 @@ if (Q.sapd_formed && Q.sapd_r) {
 }
 data = data.concat([
     {
-        "id": "spd",
-        "legend": "SPD",
-        "name": "SPD",
-        "seats": Math.round(Q.spd_r*5),
+        "id": "labour",
+        "legend": "Labour",
+        "name": "Labour",
+        "seats": Math.round(Q.labour_r*5),
     },
     {
-        "id": "ddp",
-        "legend": Q.ddp_name,
-        "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_r*5),
+        "id": "libdem",
+        "legend": Q.libdem_name,
+        "name": Q.libdem_name,
+        "seats": Math.round(Q.libdem_r*5),
     },
     {
-        "id": "z",
-        "legend": "Center",
-        "name": "Center",
-        "seats": Math.round((Q.z_r - 3)*5),
-    },
-    {
-        "id": "bvp",
-        "legend": "BVP",
-        "name": "BVP",
-        "seats": Math.round(3*5),
-    },
-    {
-        "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Math.round(Q.dvp_r*5),
-    },
-    {
-        "id": "other",
-        "legend": "Other",
-        "name": "Other",
-        "seats": Math.round(Q.other_r*5),
-    },
-    {
-        "id": "dnvp",
-        "legend": "DNVP",
-        "name": "DNVP",
-        "seats": Math.round(Q.dnvp_r*5),
-    },
-    {
-        "id": "nsdap",
-        "legend": "NSDAP",
-        "name": "NSDAP",
-        "seats": Math.round(Q.nsdap_r*5),
+        "id": "conservative",
+        "legend": "Conservative",
+        "name": "Conservative",
+        "seats": Math.round((Q.conservative_r - 3)*5),
     },
 ]);
 
@@ -279,32 +249,20 @@ go-to: coalition_menu
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0087DC'> </div> !}Conservative: {!</td><td>!} [+ conservative_r +]% {!</td><td>!} [+ str_change_conservative +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!}
-
-{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
-
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} 3% {!</td><td>!} 0 {!</td></tr>!}
-
-{!<tr><td><div class="box" style='background-color:#D5AC27'> </div> !} DVP: {!</td><td>!} [+ dvp_r +]% {!</td><td>!} [+ str_change_dvp +] {!</td></tr>!}
- 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_r +] % {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
-
-{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!}
-
-{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} LibDem: {!</td><td>!} [+ libdem_r +]% {!</td><td>!} [+ str_change_libdem +] {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
 
-Weimar Coalition (SPD + Z + [+ ddp_name +]): [+ weimar_coalition +]%
+People Coalition (Labour + LibDem): [+ people_coalition +]%
 
-Grand Coalition (SPD + Z + BVP + [+ ddp_name +] + DVP): [+ grand_coalition +]%
+National Coalition (Labour + Conservative + LibDem): [+ national_coalition +]%
 
-Bourgeois Coalition (Z + BVP + [+ ddp_name +] + DVP + Others): [+ bourgeois_coalition +]%
+Bourgeois Coalition (Conservative + LibDems): [+ bourgeois_coalition +]%
 
-Right-wing Coalition (Z + BVP + DVP + Others + DNVP): [+ right_coalition +]%
+Grand Coalition (Labour + LibDem): [+ grand_coalition +]%
 
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribund; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
@@ -314,17 +272,13 @@ There are some potential coalition arrangements.
 
 @coalition_menu
 
-- @spd_majority
-- @weimar_coalition
+- @labour_majority
+- @people_coalition
+- @national_coalition
 - @grand_coalition
-- @new_grand_coalition
 - @unity_government
-- @far_right_coalition
+- @bourgeois_coalition
 - @no_majority
-- @brauns_dilemma
-- @left_coalition
-- @popular_front_coalition
-- @right_coalition
 
 # TODO: black-brown coalition
 
@@ -729,14 +683,14 @@ There is no path to a majority government for now. The scheming around President
 
 # if NSDAP is largest party and Hindenburg is president, then Hindenburg appoints Hitler chancellor.
 
-@spd_majority
-title: SPD majority alone
-subtitle: SPD: [+ spd_r +]%
-view-if: spd_r >= 50
-on-arrival: chancellor = "Empty"; chancellor_party = "SPD"; spd_in_government = 1; in_spd_majority = 1; pro_republic += 5; foreign_minister_party = "SPD"; foreign_minister = "Breitscheid"; interior_minister_party = "SPD"; interior_minister = "Severing"; justice_minister_party = "SPD"; justice_minister = "Radbruch"; labor_minister_party = "SPD"; labor_minister = "Wissell"; reichswehr_minister_party = "SPD"; reichswehr_minister = "Leber"; economic_minister_party = "SPD"; economic_minister = "Schmidt"; finance_minister_party = "SPD"; finance_minister = "Hilferding"; agriculture_minister_party = "SPD"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
+@labour_majority
+title: Labour majority alone
+subtitle: Labour: [+ labour_r +]%
+view-if: labour_r >= 50
+on-arrival: chancellor = "Empty"; chancellor_party = "Labour"; labour_in_government = 1; in_labour_majority = 1; pro_republic += 5; foreign_minister_party = "SPD"; foreign_minister = "Breitscheid"; interior_minister_party = "Labour"; interior_minister = "Severing"; justice_minister_party = "Labour"; justice_minister = "Radbruch"; labor_minister_party = "Labour"; labor_minister = "Wissell"; reichswehr_minister_party = "Labour"; reichswehr_minister = "Leber"; economic_minister_party = "Labour"; economic_minister = "Schmidt"; finance_minister_party = "Labour"; finance_minister = "Hilferding"; agriculture_minister_party = "Labour"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
 achievement: majority_party
 
-Finally, the SPD can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about coalition government; anything is possible. 
+Finally, Labour can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about coalition government; anything is possible. 
 
 Who should be chancellor?
 
@@ -781,9 +735,9 @@ President Braun faces a dilemma. He desperately desires a socialist or at least 
 
 - @emergency_braun: We will form an emergency government with Braun's support.
 - @new_elections: We will have new elections.
-- @new_grand_coalition
-- @left_coalition
-- @popular_front_coalition
+- @grand_coalition
+- @people_coalition
+- @bourgeois_coalition
 - @far_right_coalition
 
 
@@ -879,11 +833,11 @@ if (Q.next_election_month > 12) {
     Q.next_election_year = Q.year;
 }
 Q.pro_republic -= 5;
-Q.workers_spd -= 3;
-Q.new_middle_spd -= 3;
-Q.old_middle_spd -= 3;
-Q.rural_spd -= 3;
-Q.catholics_spd -= 3;
+Q.workers_labour -= 3;
+Q.middle_labour -= 3;
+Q.bourgeois_labour -= 3;
+Q.rural_labour -= 3;
+Q.seniors_labour -= 3;
 Q.workers_nsdap += 5;
 Q.old_middle_nsdap += 3;
 Q.new_middle_nsdap += 3;
@@ -918,14 +872,14 @@ achievement: minderheitsregierung
 We have won the vote of no confidence, and are currently ruling under an SPD minority government. Now our task is to fix the country.
 
 
-@weimar_coalition
-title: We can form a Weimar Coalition.
-subtitle: SPD + Z + [+ ddp_name +] [? if sapd_formed and kpd_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
-view-if: weimar_coalition >= 50
-on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_weimar_coalition = 1; spd_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
-achievement: weimar_coalition
+@people_coalition
+title: We can form a People's Coalition.
+subtitle: Labour + LibDem [? if sapd_formed and kpd_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
+view-if: labour_coalition >= 50
+on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_people_coalition = 1; labour_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
+achievement: people_coalition
 
-We have enough votes to form a "Weimar Coalition" government consisting of the SPD, Center (Z) and Democratic ([+ ddp_name +]) parties! This has been our preferred governing coalition since 1919.
+We have enough votes to form a "People's Coalition" government consisting of the SPD, Center (Z) and Democratic ([+ ddp_name +]) parties! This has been our preferred governing coalition since 1919.
 
 Who should be the chancellor?
 
