@@ -296,6 +296,8 @@ We may lose our voters, if such a coalition were formed.
 
 - @british_coalition: Form the National Coalition!
 
+@british_coalition
+
 Somehow, both the Conservatives and Liberal Democrats are at the very least willing to entertain negotiations. Of course, they will derail the negotiations almost immediately. The Conservatives demands leadership of the coalition for themselves and their leader, [? if labour_r > conservative_r : despite our higher vote share, ?]while the Liberal Democrats is offended by the prospect of helping Conservatives enter government. *Something* must be done to restore balance.
 
 - @british_coalition_resources
